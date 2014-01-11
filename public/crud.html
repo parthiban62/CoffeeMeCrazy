@@ -26,7 +26,7 @@
         <td data-bind="text: description"></td>
         <td data-bind="text: location"></td>
         <td data-bind="text: is_tried"></td>
-        <td><a data-bind='click: function() { viewModel.createCommentAction($data) }'>Add Comment</a></td>
+        <td data-bind="text: comment"></td>
         <!-- /// 4 -->
         <td>
           <a data-bind="click: function() { viewModel.showAction($data) }">Show</a>
@@ -58,6 +58,10 @@
         <b>Tried</b><br/>
         <span data-bind="text: is_tried"></span>
       </p>
+			<p>
+        <b>Comment</b><br/>
+        <span data-bind="text: comment"></span>
+      </p>
       <p>
         <!-- /// 6 -->
         <a data-bind="click: function() { viewModel.indexAction() }">Back</a>
@@ -70,7 +74,7 @@
       <form id="form">
         <div class="field">
           <label for="post_title">Name</label><br />
-          <input id="post_title" data-bind="value: name" />
+          <input id="post_name" data-bind="value: name" />
 
         </div>
 				<div class="field">
@@ -83,8 +87,12 @@
           <input id="post_location" data-bind="value: location" />
         </div>
 				<div class="field">
-          <label for="post_tried">Location</label><br />
+          <label for="post_tried">Tried</label><br />
           <input type="checkbox" id="post_tried" data-bind="value: is_tried" />
+        </div>
+				<div class="field">
+          <label for="post_comment">Comment</label><br />
+          <input id="post_comment" data-bind="value: comment" />
         </div>
       </form>
       <div>
@@ -113,27 +121,16 @@
           <label for="post_tried">Tried</label><br />
           <input type ="checkbox" id="post_tried" data-bind="value: is_tried" checked="true"/>
         </div>
+				<div class="field">
+          <label for="post_comment">Comment</label><br />
+          <input id="post_comment" data-bind="value: comment" />
+        </div>
       </form>
       <div>
         <button data-bind="click: function() { viewModel.createAction($data) }">Create</button>
         <a data-bind="click: function() { viewModel.indexAction() }">Cancel</a>
       </div>
     </script>
-    <!-- /// 8 -->
-    <script id="newComment" type="text/html">
-      <form id="comment">
-        <div class="field">
-          <label for="post_comment">Comment</label><br />
-          <input id="post_name" data-bind="value: name" />
-
-        </div>
-      </form>
-      <div>
-        <button data-bind="click: function() { viewModel.createCommentAction($data) }">Create</button>
-        <a data-bind="click: function() { viewModel.indexAction() }">Cancel</a>
-      </div>
-    </script>
-
     <!-- /// 9 -->
     <ul data-bind='template: {name: "errorsTemplate", foreach: errors}'></ul>
     <!-- /// 10 -->
@@ -147,6 +144,7 @@
             <th>Description</th>
             <th>Location</th>
             <th>Tried</th>
+            <th>Comments</th>
             <th></th>
             <th></th>
             <th></th>
@@ -170,6 +168,7 @@
     <!-- /// 14 -->
     <div data-bind='visible: currentPage() == "new"'>
       <div data-bind='template: {name: "newTemplate", data: tempItem}'></div>
+    </div>
     </div>
   </body>
 </html>

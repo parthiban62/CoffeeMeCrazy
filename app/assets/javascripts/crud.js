@@ -17,6 +17,7 @@ var viewModel = {
     name: ko.observable(),
     description: ko.observable(),
     location: ko.observable(),
+    comment: ko.observable(),
     is_tried: ko.observable(),
     updated_at: ko.observable(),
     created_at: ko.observable()
@@ -149,31 +150,9 @@ var viewModel = {
       });
     }
   },
-    // /// 20
-  createCommentAction: function(itemToCreate) {
-  var json_data = ko.toJS(itemToCreate);
-    $.ajax({
-      type: 'POST',
-      url: '/comments.json',
-      data: {
-        // /// 17
-        comment: json_data
-      },
-      dataType: "json",
-      success: function(createdItem) {
-        viewModel.errors([]);
-        viewModel.setFlash('Comment successfully created.');
-        viewModel.clearTempItem();
-        viewModel.indexAction();
-      },
-      error: function(msg) {
-        viewModel.errors(JSON.parse(msg.responseText));
-      }
-    });
-  },
 };
 
-// /// 21
+// /// 20
 $(document).ready(function() {
   ko.applyBindings(viewModel);
   viewModel.indexAction();

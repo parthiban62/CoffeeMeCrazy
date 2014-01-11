@@ -1,5 +1,6 @@
 CoffeeMeCrazy::Application.routes.draw do
   resources :coffee_beans
+  resources :comments
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
