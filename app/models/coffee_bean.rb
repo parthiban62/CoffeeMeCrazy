@@ -3,5 +3,5 @@ class CoffeeBean < ActiveRecord::Base
 	validates :name, :presence => true
 	validates :description, :presence => true
 	validates :location, :presence => true
-	#attr_accessor :id,:name,:description,:location,:created_at,:updated_at
+	validates :comment, :presence => true
 end

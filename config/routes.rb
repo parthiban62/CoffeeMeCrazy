@@ -1,6 +1,7 @@
 CoffeeMeCrazy::Application.routes.draw do
   resources :coffee_beans
   resources :comments
+  match '/crud', :to => redirect('/crud.html')
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

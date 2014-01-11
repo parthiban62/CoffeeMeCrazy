@@ -88,7 +88,7 @@
         </div>
 				<div class="field">
           <label for="post_tried">Tried</label><br />
-          <input type="checkbox" id="post_tried" data-bind="value: is_tried" />
+          <input type="checkbox" id="post_tried" data-bind="checked: is_tried" />
         </div>
 				<div class="field">
           <label for="post_comment">Comment</label><br />
@@ -137,7 +137,7 @@
     <span data-bind='text: flash'></span>
     <!-- /// 11 -->
     <div data-bind='visible: currentPage() == "index"'>
-      <table>
+      <table border="1">
         <thead>
           <tr>
             <th>Name</th>
